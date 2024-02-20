@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar-icon {
+    @apply relative flex items-center justify-center h-8 w-8 mt-2 mb-2 mx-auto bg-blue-950 hover:bg-secondary hover:text-white cursor-pointer rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear;
+  }
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max sm:left-9 sm:bottom-0 bottom-9 rounded-md shadow-md
+    text-white bg-gray-900 
+    text-xs font-bold 
+    transition-all duration-100 scale-0 origin-left;
+  }
+  .sidebar-hr {
+    @apply bg-gray-200 dark:bg-gray-800 
+    border border-gray-200 dark:border-gray-800 rounded-full
+    mx-2;
+  }
+  .orange_gradient {
+    @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  }
+  .head_text {
+    @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  }
+  .desc {
+    @apply mt-5 text-lg text-gray-600 sm:text-xl;
+  }
+  .blue_gradient {
+    @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 1rem;
+}
+
+.task {
+  flex: 1 1 250px; /* Ensure each task item has equal width */
+  min-width: 250px; /* Minimum width for each task item */
+  max-width: 100%; /* Maximum width for each task item */
+  cursor: pointer;
+}
+
+.task-card {
+  background-color: #fdfeff;
+  border-radius: 8px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  height: 100%; /* Ensure each task item has the same height */
+  display: flex;
+  flex-direction: column;
+}
+
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+.task-priority {
+  color: red; /* Adjust color as needed */
+}
+
+.task-divider {
+  border: 0.5px solid #ddd;
+  margin: 12px 0;
+}
+
+.task-description {
+  flex: 1; /* Allow description to grow and overflow */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Show 3 lines of text */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  margin: 8px 0;
+}
+
+.task-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-deadline {
+  font-weight: bold;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+}
+
+.task-actions span {
+  margin-left: 8px;
+}
+
+/* Add hover effects or other styles as needed */

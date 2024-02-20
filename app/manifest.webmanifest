@@ -1,0 +1,52 @@
+{
+  "short_name": "Task Master",
+  "name": "Task Master",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/assets/icons/manifest-icons/maskable_icon_x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/assets/icons/manifest-icons/maskable_icon_x128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/assets/icons/manifest-icons/maskable_icon_x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icons/manifest-icons/maskable_icon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#033dfc",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#317EFB",
+  "start_url": "/dashboard",
+  "shortcuts": [
+    {
+      "name": "Task Management",
+      "short_name": "TskMstr",
+      "description": "Quickly access Task Master to manage your tasks with ease and efficiency",
+      "url": "/dashboard?source=pwa",
+      "icons": [{ "src": "task-master-high-icon-128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "Add Task",
+      "short_name": "Add",
+      "description": "Quickly add a new task",
+      "url": "/add-task"
+    }
+  ],
+  "description": "TaskMaster: Your all-in-one task management solution. Stay organized, track deadlines, and boost productivity with ease. Sign in with Google for seamless access, and master your tasks effortlessly",
+  "orientation": "any",
+  "categories": ["productivity", "task_management"]
+}
