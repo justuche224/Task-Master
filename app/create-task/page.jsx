@@ -26,10 +26,9 @@ const Page = () => {
 
   const handleDateChange = (e) => {
     const { value } = e.target;
-    // No need to parse the input value here if it's already in the correct format
     setNewTask((prevTask) => ({
       ...prevTask,
-      dueDate: value, // Update dueDate directly without parsing it
+      dueDate: value,
     }));
   };
 
@@ -45,13 +44,12 @@ const Page = () => {
     e.preventDefault();
     setSubmitting(true);
     try {
-      // Parse the dueDate before sending the data
       const parsedDueDate = new Date(newTask.dueDate);
       const response = await fetch("/api/task/new", {
         method: "POST",
         body: JSON.stringify({
           ...newTask,
-          dueDate: parsedDueDate, // Replace the dueDate with the parsed value
+          dueDate: parsedDueDate,
           creator: session?.user.id,
         }),
       });

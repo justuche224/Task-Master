@@ -1,3 +1,4 @@
+import Nav from "@/components/nav/Nav";
 import TopBar from "@/components/nav/TopBar";
 import Provider from "@/components/Provider";
 import "@/styles/globals.css";
@@ -16,7 +17,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Provider>
-          <TopBar />
+          {/* <TopBar /> */}
+          <Nav />
           <section className=" mt-[5rem]">{children}</section>
         </Provider>
       </body>

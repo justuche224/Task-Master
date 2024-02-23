@@ -1,7 +1,21 @@
 import { FaTimesCircle, FaPen, FaTrash, FaCheck } from "react-icons/fa";
 import styles from "./Modal.module.css";
+import Link from "next/link";
 
-const Modal = ({ selectedTask, setShowModal }) => {
+const Modal = ({
+  selectedTask,
+  setShowModal,
+  handleDeleteTask,
+  markTaskCompleted,
+}) => {
+  const handleClickDelete = () => {
+    setShowModal(false);
+    handleDeleteTask(selectedTask);
+  };
+  const handleClickCompleted = () => {
+    markTaskCompleted(selectedTask);
+  };
+
   const calculateElapsedTime = (dueDate) => {
     const dueDateTime = new Date(dueDate).getTime();
     const currentTime = new Date().getTime();
@@ -41,12 +55,17 @@ const Modal = ({ selectedTask, setShowModal }) => {
         )}
         <div className={styles.modal_buttons}>
           <button className={styles.modal_button}>
-            <FaPen /> Edit
+            <Link href={`/update-task?id=${selectedTask._id}`}>
+              <FaPen /> Edit
+            </Link>
           </button>
-          <button className={styles.modal_button}>
+          <button className={styles.modal_button} onClick={handleClickDelete}>
             <FaTrash /> Delete
           </button>
-          <button className={styles.modal_button}>
+          <button
+            className={styles.modal_button}
+            onClick={handleClickCompleted}
+          >
             <FaCheck /> Mark as Completed
           </button>
         </div>

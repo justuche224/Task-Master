@@ -31,6 +31,7 @@ const TopBar = () => {
           height={60}
           width={60}
           alt="Logo"
+          priority={true}
         />
       </Link>
       <div className="flex justify-center content-center mt-3 gap-5">

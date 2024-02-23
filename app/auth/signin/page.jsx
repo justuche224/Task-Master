@@ -47,7 +47,7 @@ export default function SignIn() {
   }, [session, router, callbackUrl, redirecting]);
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center">
       {redirecting ? (
         <p className="text-lg text-gray-600">Redirecting...</p>
       ) : (

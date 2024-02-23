@@ -54,13 +54,27 @@ body {
 }
 
 .task-card {
-  background-color: #fdfeff;
-  border-radius: 8px;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  background: radial-gradient(
+        178.94% 106.41% at 26.42% 106.41%,
+        #fff7b1 0%,
+        rgba(255, 255, 255, 0) 71.88%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    #ffffff;
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01),
+    0px 87px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09),
+    0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 23px;
+  transition: all 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
+  cursor: pointer;
   padding: 16px;
-  height: 100%; /* Ensure each task item has the same height */
+  height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.task-card:hover {
+  transform: scale(0.95);
 }
 
 .task-header {
@@ -110,7 +124,7 @@ body {
 }
 
 .task-actions span {
-  margin-left: 8px;
+  margin: 8px;
 }
 
 /* Add hover effects or other styles as needed */

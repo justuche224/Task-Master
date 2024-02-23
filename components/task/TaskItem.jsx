@@ -1,6 +1,12 @@
+import Link from "next/link";
 import { FaCheck, FaExclamation, FaPen, FaTrash } from "react-icons/fa";
 
-const TaskItem = ({ task, onTaskClick }) => {
+const TaskItem = ({
+  task,
+  onTaskClick,
+  handleDeleteTask,
+  markTaskCompleted,
+}) => {
   const formattedDueDate = new Date(task.dueDate).toLocaleDateString(
     undefined,
     {
@@ -9,7 +15,16 @@ const TaskItem = ({ task, onTaskClick }) => {
       day: "numeric",
     }
   );
-  console.log(task);
+
+  const handleClickDelete = () => {
+    handleDeleteTask(task);
+  };
+
+  const handleClickCompleted = () => {
+    console.log(task);
+    markTaskCompleted(task);
+  };
+
   return (
     <div className="task" onClick={() => onTaskClick(task)}>
       <div className="task-card">
@@ -27,15 +42,35 @@ const TaskItem = ({ task, onTaskClick }) => {
           <p className="task-deadline">
             Due <span className="text-base italic">{formattedDueDate}</span>
           </p>
-          <div className="task-actions">
-            <span className="edit">
-              <FaPen />
-            </span>
-            <span className="delete">
+          <div
+            className="task-actions"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            {task.status === "completed" ? (
+              <span className="italic text-green-500">completed</span>
+            ) : (
+              <>
+                <span className="edit fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-blue-400 border border-slate-200">
+                  <Link href={`/update-task?id=${task._id}`}>
+                    <FaPen />
+                  </Link>
+                </span>
+
+                <span
+                  className="completed fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-blue-400 border border-slate-200"
+                  onClick={handleClickCompleted}
+                >
+                  <FaCheck />
+                </span>
+              </>
+            )}
+            <span
+              className="delete fill-slate-600 col-span-1 flex justify-center items-center rounded-lg p-2 duration-300 bg-slate-100 hover:border-slate-600 focus:fill-blue-200 focus:bg-blue-400 border border-slate-200"
+              onClick={handleClickDelete}
+            >
               <FaTrash />
-            </span>
-            <span className="completed">
-              <FaCheck />
             </span>
           </div>
         </div>
